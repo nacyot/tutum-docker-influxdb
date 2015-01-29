@@ -29,8 +29,13 @@ port     = 8086    # binding is disabled if the port isn't set
 read-timeout = "5s"
 
 [input_plugins]
+  [input_plugins.collectd]
+  enabled = true
+  address = "0.0.0.0" # If not set, is actually set to bind-address.
+  port = 25826
+  database = "system"
+  typesdb = "/usr/share/collectd/types.db" # The path to the collectd types.db file
 
-  # Configure the graphite api
   [input_plugins.graphite]
   enabled = false
   # port = 2003
